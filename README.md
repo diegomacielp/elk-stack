@@ -10,3 +10,5 @@
 <div id="elasticsearch"></div>
 
 ## Elasticsearch
+
+    docker-compose up -d elasticsearch
