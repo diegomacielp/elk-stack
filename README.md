@@ -14,7 +14,7 @@
 1. Iniciando Elasticsearch:
 ### 
     docker-compose up -d elasticsearch
-    curl localhost:9200
+    curl -XGET localhost:9200
 
 <p><a><img src="./imgs/elasticsearch.png"></a></p>
 
