@@ -10,12 +10,36 @@
 <div id="elasticsearch"></div>
 
 ## Elasticsearch
-
-1. Iniciando Elasticsearch:
-### 
-    docker-compose up -d elasticsearch
-    curl -XGET localhost:9200
+### Iniciando Elasticsearch:
+ 
+    $ docker-compose up -d elasticsearch
+    $ curl -XGET localhost:9200
 
 <p><a><img src="./imgs/elasticsearch.png"></a></p>
 
-2. Testando Elasticsearch:
+### Testando Elasticsearch:
+Criando index:
+
+    $ wget http://media.sundog-soft.com/es7/shakes-mapping.json
+    $ curl -H 'Content-Type: application/json' \
+    -XPUT 127.0.0.1:9200/shakespeare \
+    --data-binary @shakes-mapping.json
+    $ wget http://media.sundog-soft.com/es7/shakespeare_7.0.json
+    $ curl -H 'Content-Type: application/json' \
+    -XPOST '127.0.0.1:9200/shakespeare/_bulk?pretty' \
+    --data-binary @shakespeare_7.0.json
+
+Realizando uma consulta:
+
+    $ curl -H 'Content-Type: application/json' \
+    -XGET '127.0.0.1:9200/shakespeare/_search?pretty' -d '
+    {
+    "query" : {
+    "match_phrase" : {
+    "text_entry" : "to be or not to be"
+    }
+    }
+    }
+    '
+
+<p><a><img src="./imgs/shakespeare.png"></a></p>
