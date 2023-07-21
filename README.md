@@ -11,4 +11,7 @@
 
 ## Elasticsearch
 
+1. Iniciando Elasticsearch:
+### 
     docker-compose up -d elasticsearch
+    curl localhost:9200
