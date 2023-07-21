@@ -15,3 +15,9 @@
 ### 
     docker-compose up -d elasticsearch
     curl localhost:9200
+
+<p align="center">
+  <a><img src="./imgs/elasticsearch.png"></a>
+</p>
+
+2. Testando Elasticsearch:
