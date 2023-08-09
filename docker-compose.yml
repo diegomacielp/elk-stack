@@ -21,7 +21,8 @@ services:
       discovery.type: single-node
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.17.10
+    build:
+      context: logstash/
     container_name: logstash
     volumes:
       - type: bind
